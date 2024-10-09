@@ -3,18 +3,26 @@ package to.msn.wings.dialogargs
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 
 class MyDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val items = arrayOf("A型", "B型", "O型", "AB型")
         val dialog = activity?.let {
-            val txtName = arguments?.getString("txtName")
             AlertDialog.Builder(it).apply {
-                setTitle("ダイアログの基本")
-                setMessage("こんにちは、${txtName}さん！")
+                setTitle("血液型")
                 setIcon(R.drawable.wings)
+                setItems(items) { dialog, which ->
+                    Toast.makeText(
+                        activity,
+                        "「${items[which]}」が選択されました。",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }.create()
         }
+        // ダイアログを表示
         return dialog ?: throw IllegalStateException("Activity is null.")
     }
 }
