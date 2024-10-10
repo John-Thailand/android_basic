@@ -14,10 +14,6 @@ class MainActivity : AppCompatActivity() {
         val btn = findViewById<Button>(R.id.btn)
         btn.setOnClickListener {
             MyDialogFragment().apply {
-                // フラグメントにEditTextへの入力値を引き渡す
-                arguments = Bundle().apply {
-                    putString("txtName", txtName.text.toString())
-                }
                 show(supportFragmentManager, "dialog_basic")
             }
         }
