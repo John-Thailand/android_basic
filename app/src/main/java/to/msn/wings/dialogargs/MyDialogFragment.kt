@@ -1,35 +1,28 @@
 package to.msn.wings.dialogargs
 
 import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import java.util.Calendar
 
 class MyDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val items = arrayOf("電車", "バス", "徒歩", "マイカー", "自転車", "その他")
-        val selected = booleanArrayOf(true, true, true, false, false, false)
-
+        val cal = Calendar.getInstance()
         val dialog = activity?.let {
-            AlertDialog.Builder(it).apply {
-                setTitle("通勤手段")
-                setIcon(R.drawable.wings)
-                setMultiChoiceItems(items, selected) { dialog, which, isChecked ->
-                    selected[which] = isChecked
-                }
-                setPositiveButton("OK") { dialog, which ->
-                    val msg = mutableListOf<String>()
-                    selected.forEachIndexed { index, e ->
-                        if (e) msg.add(items[index])
-                    }
-                    Toast.makeText(
-                        activity,
-                        "「${msg.joinToString()}}」が選択されました。",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }.create()
+            DatePickerDialog(
+                it,
+                { view, year, monthOfYear, dayOfMonth ->
+                    val txtDate = it.findViewById<EditText>(R.id.txtDate)
+                    txtDate.setText("${year}/${monthOfYear + 1}/${dayOfMonth}")
+                },
+                cal[Calendar.YEAR],
+                cal[Calendar.MONTH],
+                cal[Calendar.DAY_OF_MONTH]
+            )
         }
         return dialog ?: throw IllegalStateException("Activity is null.")
     }

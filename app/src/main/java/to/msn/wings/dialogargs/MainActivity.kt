@@ -10,7 +10,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val txtName = findViewById<EditText>(R.id.txtName)
         val btn = findViewById<Button>(R.id.btn)
         btn.setOnClickListener {
             MyDialogFragment().apply {

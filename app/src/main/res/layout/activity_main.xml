@@ -6,25 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <EditText
-        android:id="@+id/txtName"
+        android:id="@+id/txtDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="名前を入力してください"
-        android:inputType="textPersonName"
+        android:hint="日付を入力してください"
+        android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ダイアログ表示"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="日付入力"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
