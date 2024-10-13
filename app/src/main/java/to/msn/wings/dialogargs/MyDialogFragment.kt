@@ -1,27 +1,26 @@
 package to.msn.wings.dialogargs
 
-import android.app.AlertDialog
-import android.app.DatePickerDialog
 import android.app.Dialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import java.util.Calendar
 
 class MyDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        // 現在の時刻を準備
         val cal = Calendar.getInstance()
         val dialog = activity?.let {
-            DatePickerDialog(
+            TimePickerDialog(
                 it,
-                { view, year, monthOfYear, dayOfMonth ->
-                    val txtDate = it.findViewById<EditText>(R.id.txtDate)
-                    txtDate.setText("${year}/${monthOfYear + 1}/${dayOfMonth}")
+                { view, hourOfDay, minute ->
+                    val txtDate = it.findViewById<EditText>(R.id.txtTime)
+                    txtDate.setText("${hourOfDay}:${minute}")
                 },
-                cal[Calendar.YEAR],
-                cal[Calendar.MONTH],
-                cal[Calendar.DAY_OF_MONTH]
+                cal[Calendar.HOUR_OF_DAY],
+                cal[Calendar.MINUTE],
+                false
             )
         }
         return dialog ?: throw IllegalStateException("Activity is null.")
