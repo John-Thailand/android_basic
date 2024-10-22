@@ -11,7 +11,7 @@ class SimpleView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     private val p = Paint().apply {
         color = Color.CYAN
         strokeWidth = 10f
-        strokeCap = Paint.Cap.ROUND
+        style = Paint.Style.FILL_AND_STROKE
     }
 
     // 描画のコア
@@ -20,9 +20,6 @@ class SimpleView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         super.onDraw(canvas)
 
         canvas?.drawColor(Color.WHITE)
-        canvas?.drawLines(
-            floatArrayOf(50f, 100f, 350f, 350f, 350f, 350f, 575f, 100f, 575f, 100f, 720f, 350f, 720f, 350f, 900f, 100f),
-            p
-        )
+        canvas?.drawRect(100f, 100f, 400f, 400f, p)
     }
 }
