@@ -11,15 +11,18 @@ class SimpleView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     // 描画のためのスタイルを準備
     private val p = Paint().apply {
         color = Color.CYAN
-        strokeWidth = 100f
+        strokeWidth = 30f
     }
 
     // 描画のコア
     // Androidがビューを表示/更新する際に呼び出すメソッド
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        // ビューへの描画
-        canvas?.drawColor(Color.RED)
-        canvas?.drawPoint(100f, 100f, p)
+
+        canvas?.drawColor(Color.WHITE)
+        canvas?.drawPoints(
+            floatArrayOf(50f, 100f, 80f, 130f, 110f, 160f, 140f, 190f),
+            p
+        )
     }
 }
