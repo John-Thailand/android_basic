@@ -8,10 +8,10 @@ import android.util.AttributeSet
 import android.view.View
 
 class SimpleView(context: Context, attrs: AttributeSet) : View(context, attrs) {
-    // 描画のためのスタイルを準備
     private val p = Paint().apply {
         color = Color.CYAN
-        strokeWidth = 30f
+        strokeWidth = 10f
+        strokeCap = Paint.Cap.ROUND
     }
 
     // 描画のコア
@@ -20,9 +20,6 @@ class SimpleView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         super.onDraw(canvas)
 
         canvas?.drawColor(Color.WHITE)
-        canvas?.drawPoints(
-            floatArrayOf(50f, 100f, 80f, 130f, 110f, 160f, 140f, 190f),
-            p
-        )
+        canvas?.drawLine(10f, 20f, 800f, 550f, p)
     }
 }
