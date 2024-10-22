@@ -20,6 +20,9 @@ class SimpleView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         super.onDraw(canvas)
 
         canvas?.drawColor(Color.WHITE)
-        canvas?.drawLine(10f, 20f, 800f, 550f, p)
+        canvas?.drawLines(
+            floatArrayOf(50f, 100f, 350f, 350f, 350f, 350f, 575f, 100f, 575f, 100f, 720f, 350f, 720f, 350f, 900f, 100f),
+            p
+        )
     }
 }
