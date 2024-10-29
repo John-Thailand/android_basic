@@ -11,12 +11,16 @@ import android.util.AttributeSet
 import android.view.View
 
 class SimpleView(context: Context, attrs: AttributeSet) : View(context, attrs) {
-    private val bmp = BitmapFactory.decodeResource(resources, R.drawable.wings)
-    private val p = Paint()
+    private val p = Paint().apply {
+        color = Color.CYAN
+        strokeWidth = 5f
+    }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        canvas?.drawColor(Color.WHITE)
-        canvas?.drawBitmap(bmp, 0f, 10f, p)
+        canvas?.translate(200f, 200f)
+        canvas?.scale(1.5f, 1.5f)
+        canvas?.rotate(60f)
+        canvas?.drawRect(0f, 0f, 200f, 200f, p)
     }
 }
