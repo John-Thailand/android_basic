@@ -11,7 +11,7 @@ import android.view.View
 class SimpleView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     private val p = Paint().apply {
         color = Color.CYAN
-        strokeWidth = 20f
+        strokeWidth = 5f
         style = Paint.Style.FILL_AND_STROKE
     }
     private val rectf = RectF(200f, 400f, 800f, 800f)
@@ -22,7 +22,6 @@ class SimpleView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         super.onDraw(canvas)
 
         canvas?.drawColor(Color.WHITE)
-        canvas?.drawCircle(200f, 200f, 100f, p)
-        canvas?.drawOval(rectf, p)
+        canvas?.drawArc(rectf, 90f, 150f, false, p)
     }
 }
