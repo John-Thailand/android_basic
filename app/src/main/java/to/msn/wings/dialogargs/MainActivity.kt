@@ -16,17 +16,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn = findViewById<Button>(R.id.btnSend)
-        btn.setOnClickListener {
-            val txtName = findViewById<EditText>(R.id.txtName)
-            // インテントを作成してアクティビティを起動
-            startActivity(
-                // ACTION_SENDアクションでテキストボックスの値を送信
-                Intent(Intent.ACTION_SEND).apply {
-                    type = "text/plain"
-                    putExtra(Intent.EXTRA_TEXT, txtName.text.toString())
-                }
-            )
-        }
+//        val btn = findViewById<Button>(R.id.btnSend)
+//        btn.setOnClickListener {
+//            val txtName = findViewById<EditText>(R.id.txtName)
+//            // インテントを作成してアクティビティを起動
+//            startActivity(
+//                // ACTION_SENDアクションでテキストボックスの値を送信
+//                Intent(Intent.ACTION_SEND).apply {
+//                    type = "text/plain"
+//                    putExtra(Intent.EXTRA_TEXT, txtName.text.toString())
+//                }
+//            )
+//        }
     }
 }
