@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
+import java.util.Random
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,7 +40,12 @@ class BeforeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_before, container, false)
         // clickイベントリスナーを登録
         view.findViewById<Button>(R.id.btnNext).setOnClickListener { v ->
-            Navigation.findNavController(v).navigate(R.id.afterFragment)
+            Navigation.findNavController(v).navigate(
+                R.id.afterFragment,
+                Bundle().apply {
+                    putInt("num", Random().nextInt(100))
+                }
+            )
         }
         return view
     }
