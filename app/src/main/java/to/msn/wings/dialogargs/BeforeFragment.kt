@@ -41,9 +41,8 @@ class BeforeFragment : Fragment() {
         // clickイベントリスナーを登録
         view.findViewById<Button>(R.id.btnNext).setOnClickListener { v ->
             Navigation.findNavController(v).navigate(
-                R.id.afterFragment,
-                Bundle().apply {
-                    putInt("num", Random().nextInt(100))
+                BeforeFragmentDirections.actionBeforeFragmentToAfterFragment().apply {
+                    num = Random().nextInt(100)
                 }
             )
         }

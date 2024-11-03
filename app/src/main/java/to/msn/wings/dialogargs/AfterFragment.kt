@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.navArgs
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +22,7 @@ class AfterFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    val args: AfterFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +38,7 @@ class AfterFragment : Fragment() {
     ): View? {
         val v = inflater.inflate(R.layout.fragment_after, container, false)
         v.findViewById<TextView>(R.id.txtValue)?.apply {
-            text = "乱数：${arguments?.getInt("num")}"
+            text = "乱数：${args.num}"
         }
         return v
     }

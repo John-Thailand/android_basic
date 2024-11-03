@@ -18,5 +18,10 @@
         android:id="@+id/afterFragment"
         android:name="to.msn.wings.dialogargs.AfterFragment"
         android:label="遷移後のページ"
-        tools:layout="@layout/fragment_after" />
+        tools:layout="@layout/fragment_after" >
+        <argument
+            android:name="num"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>
