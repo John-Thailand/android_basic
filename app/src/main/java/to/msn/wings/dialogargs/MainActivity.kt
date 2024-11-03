@@ -18,11 +18,13 @@ class MainActivity : AppCompatActivity() {
 
         val btn = findViewById<Button>(R.id.btnSend)
         btn.setOnClickListener {
-            val txtKeywd = findViewById<EditText>(R.id.txtKeywd)
+            val txtName = findViewById<EditText>(R.id.txtName)
             // インテントを作成してアクティビティを起動
             startActivity(
-                Intent(Intent.ACTION_WEB_SEARCH).apply {
-                    putExtra(SearchManager.QUERY, txtKeywd.text.toString())
+                // ACTION_SENDアクションでテキストボックスの値を送信
+                Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, txtName.text.toString())
                 }
             )
         }
