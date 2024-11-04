@@ -1,6 +1,7 @@
 package to.msn.wings.dialogargs
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -12,11 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // ツールバーとの紐付け
-        val navController = (supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment).navController
-        findViewById<Toolbar>(R.id.toolbar).setupWithNavController(
-            navController,
-            AppBarConfiguration(navController.graph)
-        )
+        // ヘルパーを準備
+        val helper = SimpleDatabaseHelper(this)
+        // データベースを取得
+        helper.writableDatabase.use { db ->
+            Toast.makeText(this, "接続しました", Toast.LENGTH_SHORT).show()
+            // 本来であれば、ここにデータベース処理を記述
+        }
     }
 }
